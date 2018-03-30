@@ -19,6 +19,7 @@ export const request = ({
   method = 'GET',
   timeout = 2000,
   withCredentials = true,
+  customHeaders = [],
   onLoad = (xhr) => {},
   onTimeout = (event) => {},
   onError = () => {},
@@ -28,6 +29,11 @@ export const request = ({
 
   // with cookie
   xhr.withCredentials = withCredentials;
+
+  // headers
+  customHeaders.forEach(([header, value]) => {
+    xhr.setRequestHeader(header, value);
+  });
 
   // download progress
   xhr.onprogress = 

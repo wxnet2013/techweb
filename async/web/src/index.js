@@ -1,5 +1,4 @@
 import { request } from './cors';
-
 request({
   url: 'http://localhost:3000/api/simple',
   withCredentials: false,
@@ -15,8 +14,10 @@ request({
   },
 });
 
+// 非简单请求 Put
 request({
-  url: 'http://localhost:3000/api/simple',
+  method: 'PUT',
+  url: 'http://localhost:3000/api/not-simple',
   withCredentials: false,
   onLoad: (xhr) => {
     var text = xhr.responseText;
@@ -30,7 +31,43 @@ request({
   },
 });
 
-// 详细资料
-// http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html
-// http://www.ruanyifeng.com/blog/2016/04/cors.html
-// https://www.html5rocks.com/en/tutorials/cors/
+// 非简单请求 自定义请求头
+request({
+  method: 'PUT',
+  url: 'http://localhost:3000/api/not-simple',
+  customHeaders: [
+    ['X-Custom-Header', 'value'],
+  ],
+  withCredentials: false,
+  onLoad: (xhr) => {
+    var text = xhr.responseText;
+    console.log(text);
+  },
+  onTimeout: (event) => {
+    alert('timeout');
+　},
+  onError: () => {
+    alert('error');
+  },
+});
+
+// 非简单请求 自定义请求头: Content-Type application/json
+request({
+  method: 'PUT',
+  url: 'http://localhost:3000/api/not-simple',
+  customHeaders: [
+    ['Content-Type', 'application/json'],
+  ],
+  withCredentials: false,
+  onLoad: (xhr) => {
+    var text = xhr.responseText;
+    console.log(text);
+  },
+  onTimeout: (event) => {
+    alert('timeout');
+　},
+  onError: () => {
+    alert('error');
+  },
+});
+
