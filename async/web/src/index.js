@@ -1,9 +1,9 @@
-import { request } from './cors';
+import { request } from "./cors";
 // import './promise';
-import './async';
+import "./async";
 
 request({
-  url: 'http://localhost:3000/api/api1',
+  url: "http://localhost:3000/api/api1",
   withCredentials: false,
   onLoad(xhr) {
     const text = xhr.responseText;
@@ -17,85 +17,85 @@ request({
         console.log(text);
       },
       onTimeout() {
-        alert('timeout');
+        alert("timeout");
       },
       onError() {
-        alert('error');
-      },
+        alert("error");
+      }
     });
   },
   onTimeout: event => {
-    alert('timeout');
+    alert("timeout");
   },
   onError: () => {
-    alert('error');
-  },
+    alert("error");
+  }
 });
 
 request({
-  url: 'http://localhost:3000/api/simple',
+  url: "http://localhost:3000/api/simple",
   withCredentials: false,
   onLoad: xhr => {
     var text = xhr.responseText;
     console.log(text);
   },
   onTimeout: event => {
-    alert('timeout');
+    alert("timeout");
   },
   onError: () => {
-    alert('error');
-  },
+    alert("error");
+  }
 });
 
 // 非简单请求 Put
 request({
-  method: 'PUT',
-  url: 'http://localhost:3000/api/not-simple',
+  method: "PUT",
+  url: "http://localhost:3000/api/not-simple",
   withCredentials: false,
   onLoad: xhr => {
     var text = xhr.responseText;
     console.log(text);
   },
   onTimeout: event => {
-    alert('timeout');
+    alert("timeout");
   },
   onError: () => {
-    alert('error');
-  },
+    alert("error");
+  }
 });
 
 // 非简单请求 自定义请求头
 request({
-  method: 'PUT',
-  url: 'http://localhost:3000/api/not-simple',
-  customHeaders: [['X-token', 'token']],
+  method: "PUT",
+  url: "http://localhost:3000/api/not-simple",
+  customHeaders: [["X-token", "token"]],
   withCredentials: false,
   onLoad: xhr => {
     var text = xhr.responseText;
     console.log(text);
   },
   onTimeout: event => {
-    alert('timeout');
+    alert("timeout");
   },
   onError: () => {
-    alert('error');
-  },
+    alert("error");
+  }
 });
 
 // // 非简单请求 自定义请求头: Content-Type application/json
 request({
-  method: 'PUT',
-  url: 'http://localhost:3000/api/not-simple',
-  customHeaders: [['Content-Type', 'application/json']],
+  method: "PUT",
+  url: "http://localhost:3000/api/not-simple",
+  customHeaders: [["Content-Type", "application/json"]],
   withCredentials: false,
   onLoad: xhr => {
     var text = xhr.responseText;
     console.log(text);
   },
   onTimeout: event => {
-    alert('timeout');
+    alert("timeout");
   },
   onError: () => {
-    alert('error');
-  },
+    alert("error");
+  }
 });
