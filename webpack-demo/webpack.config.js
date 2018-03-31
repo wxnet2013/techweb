@@ -1,6 +1,17 @@
-const assertsPath = './dist/';
+const assertsPath = './imgs/';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+console.log(process.env.NODE_ENV);
 module.exports = {
+  entry: {
+    main: './src/index.js',
+    vendor: ['react', 'react-dom'],
+  },
+  output: {
+    // development hash
+    // production chunkhash
+    filename: `[name].[${process.env.NODE_ENV === 'production' ? 'chunkhash' : 'hash'}:16].js`,
+  },
   module: {
     rules: [
       {
@@ -72,5 +83,28 @@ module.exports = {
         ]
       }
     ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+        template: 'index.html',
+        inject: 'body',
+        minify: {
+            html5: true
+        },
+        hash: false
+    })
+  ],
+  optimization: {
+    splitChunks: {
+        chunks: "all",
+        minChunks: 1,
+        minSize: 0,
+        cacheGroups: {
+            vendor: {
+                test: "vendor",
+                name: "vendor"
+            }
+        }
+    }
   }
 };

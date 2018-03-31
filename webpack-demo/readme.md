@@ -70,11 +70,22 @@ $ npm i url-loader file-loader -D --registry=https://registry.npm.taobao.org
 
 
 
-
 三、开发和生产环境：配置 react、web-dev-server、hmr、lazyload、代码分割及意义
-1、react 配置
-2、本地开发服务器
-3、hmr
-4、lazyload
-5、http协议之缓存控制和 gzip
-6、代码分割
+1、本地开发服务器
+2、hmr
+3、react 配置
+```
+$ npm i babel-preset-react eslint-plugin-react react react-dom -D --registry=https://registry.npm.taobao.org
+$ npm i react react-dom -S --registry=https://registry.npm.taobao.org
+```
+4、http协议之缓存控制和gzip
+
+5、代码分割
+```
+$ npm i html-webpack-plugin -D --registry=https://registry.npm.taobao.org
+```
+
+6、lazyload
+结合 router
+
+7、环境隔离
