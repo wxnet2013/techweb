@@ -5,28 +5,28 @@ import './async';
 request({
   url: 'http://localhost:3000/api/api1',
   withCredentials: false,
-  onLoad: (xhr) => {
-    var text = xhr.responseText;
+  onLoad(xhr) {
+    const text = xhr.responseText;
     console.log(text);
 
     request({
       url: `http://localhost:3000/api/api2?param=${text}`,
       withCredentials: false,
-      onLoad: (xhr) => {
-        var text = xhr.responseText;
+      onLoad(xhr) {
+        const text = xhr.responseText;
         console.log(text);
       },
-      onTimeout: (event) => {
+      onTimeout() {
         alert('timeout');
-    　},
-      onError: () => {
+      },
+      onError() {
         alert('error');
       },
     });
   },
-  onTimeout: (event) => {
+  onTimeout: event => {
     alert('timeout');
-　},
+  },
   onError: () => {
     alert('error');
   },
@@ -35,13 +35,13 @@ request({
 request({
   url: 'http://localhost:3000/api/simple',
   withCredentials: false,
-  onLoad: (xhr) => {
+  onLoad: xhr => {
     var text = xhr.responseText;
     console.log(text);
   },
-  onTimeout: (event) => {
+  onTimeout: event => {
     alert('timeout');
-　},
+  },
   onError: () => {
     alert('error');
   },
@@ -52,13 +52,13 @@ request({
   method: 'PUT',
   url: 'http://localhost:3000/api/not-simple',
   withCredentials: false,
-  onLoad: (xhr) => {
+  onLoad: xhr => {
     var text = xhr.responseText;
     console.log(text);
   },
-  onTimeout: (event) => {
+  onTimeout: event => {
     alert('timeout');
-　},
+  },
   onError: () => {
     alert('error');
   },
@@ -68,17 +68,15 @@ request({
 request({
   method: 'PUT',
   url: 'http://localhost:3000/api/not-simple',
-  customHeaders: [
-    ['X-token', 'token'],
-  ],
+  customHeaders: [['X-token', 'token']],
   withCredentials: false,
-  onLoad: (xhr) => {
+  onLoad: xhr => {
     var text = xhr.responseText;
     console.log(text);
   },
-  onTimeout: (event) => {
+  onTimeout: event => {
     alert('timeout');
-　},
+  },
   onError: () => {
     alert('error');
   },
@@ -88,19 +86,16 @@ request({
 request({
   method: 'PUT',
   url: 'http://localhost:3000/api/not-simple',
-  customHeaders: [
-    ['Content-Type', 'application/json'],
-  ],
+  customHeaders: [['Content-Type', 'application/json']],
   withCredentials: false,
-  onLoad: (xhr) => {
+  onLoad: xhr => {
     var text = xhr.responseText;
     console.log(text);
   },
-  onTimeout: (event) => {
+  onTimeout: event => {
     alert('timeout');
-　},
+  },
   onError: () => {
     alert('error');
   },
 });
-

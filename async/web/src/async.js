@@ -5,7 +5,7 @@ async function fn() {
   return 1;
 }
 
-fn().then((v) => {
+fn().then(() => {
   console.log('ddddd');
 });
 
@@ -27,6 +27,6 @@ async function getList() {
   console.log(response.data);
 }
 
-getList().then((list) => {
+getList().then(list => {
   console.log(list);
 });

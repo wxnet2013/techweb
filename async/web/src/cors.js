@@ -1,9 +1,9 @@
-const  createXHR = (method, url) => {
+const createXHR = (method, url) => {
   let xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
+  if ('withCredentials' in xhr) {
     // XHR for Chrome/Firefox/Opera/Safari.
     xhr.open(method, url, true);
-  } else if (typeof XDomainRequest != "undefined") {
+  } else if (typeof XDomainRequest !== 'undefined') {
     // XDomainRequest for IE.
     xhr = new XDomainRequest();
     xhr.open(method, url);
@@ -12,7 +12,7 @@ const  createXHR = (method, url) => {
     xhr = null;
   }
   return xhr;
-}
+};
 
 export const request = ({
   url,
@@ -20,8 +20,8 @@ export const request = ({
   timeout = 2000,
   withCredentials = true,
   customHeaders = [],
-  onLoad = (xhr) => {},
-  onTimeout = (event) => {},
+  onLoad = xhr => {},
+  onTimeout = event => {},
   onError = () => {},
 }) => {
   const xhr = createXHR(method, url);
@@ -36,14 +36,14 @@ export const request = ({
   });
 
   // download progress
-  xhr.onprogress = 
-  // upload progress
-  xhr.upload.onprogress = (event) => {
-    if (event.lengthComputable) {
-      let percentComplete = event.loaded / event.total;
-      // alert(percentComplete);
-　　 }
-  };
+  xhr.onprogress =
+    // upload progress
+    xhr.upload.onprogress = event => {
+      if (event.lengthComputable) {
+        let percentComplete = event.loaded / event.total;
+        // alert(percentComplete);
+      }
+    };
 
   // response
   xhr.onload = () => {
@@ -58,4 +58,4 @@ export const request = ({
   xhr.onerror = onError;
 
   xhr.send();
-}
+};
