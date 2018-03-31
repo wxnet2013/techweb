@@ -3,7 +3,7 @@ import { request } from './cors';
 import './async';
 
 request({
-  url: "http://localhost:3000/api/api1",
+  url: 'http://localhost:3000/api/api1',
   withCredentials: false,
   onLoad(xhr) {
     const text = xhr.responseText;

@@ -1,0 +1,22 @@
+{
+  "name": "eslint-demo",
+  "version": "1.0.0",
+  "description": "1. npm 基础操作 2. ES 代码规范 3. 代码规范的不同阶段介绍 4. 编辑阶段配置 5. 编译阶段配置 6. 代码提交阶段",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "dev",
+    "build": "webpack",
+    "precommit": "pretty-quick --staged"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "12.1.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
