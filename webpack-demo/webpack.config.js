@@ -1,7 +1,7 @@
 const assertsPath = './imgs/';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const theme = require('./theme');
 
-console.log(process.env.NODE_ENV);
 module.exports = {
   entry: {
     main: './src/index.js',
@@ -46,6 +46,19 @@ module.exports = {
         }, {
           // compiles Sass to CSS
             loader: "sass-loader" 
+        }]
+      },
+      {
+        test: /\.less$/,
+        use: [{
+            loader: "style-loader"
+        }, {
+            loader: "css-loader"
+        }, {
+            loader: "less-loader", options: {
+              javascriptEnabled: true,
+              modifyVars: theme
+            }
         }]
       },
       // {

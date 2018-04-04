@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { LocaleProvider } from 'antd';
+import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import './components/header';
 // import HelloMessage from './components/hello';
 import Routes from './routes'
+import './index.scss';
+
 
 // 环境隔离
 // eslint-disable-next-line
@@ -20,6 +24,8 @@ import('./a').then((m) => {
 });
 
 ReactDOM.render(
-  <Routes />,
+  <LocaleProvider locale={zh_CN}>
+    <Routes />
+  </LocaleProvider>,
   document.getElementById('app'),
 );

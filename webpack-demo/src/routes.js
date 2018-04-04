@@ -3,23 +3,11 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link
 } from 'react-router-dom';
 
-const Home = () => (
-  <div>
-    home
-    <Link to="/about">关于</Link>
-  </div>
-);
-
-const About = () => (
-  <div>about</div>
-);
-
-const Login = () => (
-  <div>Login</div>
-);
+import Home from './pages/home';
+import Login from './pages/login';
+import About from './pages/about';
 
 const routes = () => (
   <Router>
