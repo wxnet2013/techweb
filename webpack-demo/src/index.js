@@ -1,17 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './components/header';
-import HelloMessage from './components/hello';
-
-// class HelloMessage extends Component {
-//   render() {
-//     return (
-//       <div>
-//         Hello {this.props.name}
-//       </div>
-//     );
-//   }
-// }
+// import HelloMessage from './components/hello';
+import Routes from './routes'
 
 // 环境隔离
 // eslint-disable-next-line
@@ -29,6 +20,6 @@ import('./a').then((m) => {
 });
 
 ReactDOM.render(
-  <HelloMessage name="Taylor" />,
+  <Routes />,
   document.getElementById('app'),
 );
