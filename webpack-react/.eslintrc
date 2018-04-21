@@ -8,6 +8,10 @@
   "plugins": [
     "react"
   ],
+  "rules": {
+    "import/prefer-default-export": false,
+    "no-console": 0
+  },
   "parserOptions": {
     "ecmaVersion": 6, 
     "sourceType": "module",

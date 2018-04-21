@@ -4,7 +4,8 @@ const theme = require('./theme');
 
 module.exports = {
   entry: {
-    main: './src/index.js',
+    // main: './src/index.js',
+    main: './src/redux/index.js',
     vendor: ['react', 'react-dom'],
   },
   output: {
